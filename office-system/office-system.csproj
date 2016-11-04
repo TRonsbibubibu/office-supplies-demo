@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,14 +61,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="dao\Dao.cs" />
+    <Compile Include="dao\DaoManager.cs" />
+    <Compile Include="dao\ItemDao.cs" />
+    <Compile Include="dao\UserDao.cs" />
+    <Compile Include="entity\Item.cs" />
+    <Compile Include="entity\User.cs" />
+    <Compile Include="exception\TableNotFoundException.cs" />
+    <Compile Include="exception\UserNotFoundException.cs" />
+    <Compile Include="layout\AddItemLayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="layout\AddItemLayout.Designer.cs">
+      <DependentUpon>AddItemLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="layout\AddUserLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="layout\AddUserLayout.Designer.cs">
+      <DependentUpon>AddUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="layout\DeleteUserLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="layout\DeleteUserLayout.Designer.cs">
+      <DependentUpon>DeleteUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="layout\LoginLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="layout\LoginLayout.Designer.cs">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="layout\MainLayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="layout\MainLayout.Designer.cs">
+      <DependentUpon>MainLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="layout\AddItemLayout.resx">
+      <DependentUpon>AddItemLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="layout\AddUserLayout.resx">
+      <DependentUpon>AddUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="layout\DeleteUserLayout.resx">
+      <DependentUpon>DeleteUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="layout\LoginLayout.resx">
+      <DependentUpon>LoginLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="layout\MainLayout.resx">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +137,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
